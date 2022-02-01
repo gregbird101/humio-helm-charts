@@ -4,11 +4,11 @@ set -ex
 
 # Fetch helm dependencies. Currently there is no way to build helm chart dependencies recursively
 # (https://github.com/helm/helm/issues/2247), so until that issue is fixed we are fetching them here
-# rm charts/humio-core/charts/*.tgz - removed because of none here
+rm ./humio-helm-charts/charts/humio-core/charts/*.tgz - removed because of none here
 helm repo add confluentinc https://humio.github.io/cp-helm-charts
 helm repo update
-pushd charts/humio-core && helm dep up; popd
-pushd charts/humio-metrics && helm dep up; popd
+pushd ./humio-helm-charts/charts/humio-core && helm dep up; popd
+pushd ./humio-helm-charts/charts/humio-metrics && helm dep up; popd
 
 # Remove any existing indexes
 find . -iname index.yaml | grep -v docs | xargs rm
