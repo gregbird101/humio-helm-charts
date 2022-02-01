@@ -7,8 +7,8 @@ set -ex
 # rm ./humio-helm-charts/charts/humio-core/charts/*.tgz 
 helm repo add confluentinc https://humio.github.io/cp-helm-charts
 helm repo update
-pushd ./humio-helm-charts/charts/humio-core && helm dep up; popd
-pushd ./humio-helm-charts/charts/humio-metrics && helm dep up; popd
+pushd humio-helm-charts/charts/humio-core && helm dep up; popd
+pushd humio-helm-charts/charts/humio-metrics && helm dep up; popd
 
 # Remove any existing indexes
 find . -iname index.yaml | grep -v docs | xargs rm
