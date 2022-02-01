@@ -4,7 +4,7 @@ set -ex
 
 # Fetch helm dependencies. Currently there is no way to build helm chart dependencies recursively
 # (https://github.com/helm/helm/issues/2247), so until that issue is fixed we are fetching them here
-rm ./humio-helm-charts/charts/humio-core/charts/*.tgz 
+# rm ./humio-helm-charts/charts/humio-core/charts/*.tgz 
 helm repo add confluentinc https://humio.github.io/cp-helm-charts
 helm repo update
 pushd ./humio-helm-charts/charts/humio-core && helm dep up; popd
