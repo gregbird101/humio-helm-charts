@@ -17,7 +17,7 @@ set -ex
 # rm -rf /tmp/docs.save && mkdir /tmp/docs.save
 # find docs/ -name '*.tgz' -maxdepth 1 -exec mv {} /tmp/docs.save/ \;
 
-helm package .
+helm package ./humio-helm-charts
 
 # mv /tmp/docs.save/*.tgz ./ && rmdir /tmp/docs.save
 
