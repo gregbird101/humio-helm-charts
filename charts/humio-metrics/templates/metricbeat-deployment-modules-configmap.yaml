@@ -17,8 +17,8 @@ data:
         - state_pod
         - state_container
         - event
-        {{- range  $metricsets := .Values.additionMetricbeatMetricsets }}
-        - {{ $metricsets.name }}
+        {{- wtih .Values.additionMetricbeatMetricsets }}
+        - {{ .name }}
         {{- end }}
       period: 10s
       host: ${NODE_NAME}
