@@ -11,7 +11,7 @@ pushd ./charts/humio-core && helm dep up; popd
 pushd ./charts/humio-metrics && helm dep up; popd
 
 # Remove any existing indexes
-find . -iname index.yaml | grep -v docs | xargs rm
+#find . -iname index.yaml | grep -v docs | xargs rm # rm: missing operand ???
 
 # Move existing releases to the charts directory so they can be re-indexed with proper URLs
 rm -rf /tmp/docs.save && mkdir /tmp/docs.save
