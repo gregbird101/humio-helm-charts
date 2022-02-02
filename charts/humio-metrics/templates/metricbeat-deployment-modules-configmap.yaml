@@ -17,12 +17,14 @@ data:
         - state_pod
         - state_container
         - event
-        {{- with .Values.additionMetricbeatMetricsets }}
-        - {{ .name }}
-        {{- end }}
       period: 10s
       host: ${NODE_NAME}
       hosts: ["{{ .Release.Name }}-kube-state-metrics.{{ default "kube-system" .Release.Namespace }}:8080"]
 {{- with .Values.customMetricbeatDeploymentModules }}
   {{- toYaml . | nindent 2 }}
 {{- end }}
+
+
+        # {{- with .Values.additionMetricbeatMetricsets }}
+        # - {{ .name }}
+        # {{- end }}
