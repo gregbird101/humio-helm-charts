@@ -17,7 +17,7 @@ pushd ./charts/humio-metrics && helm dep up; popd
 rm -rf /tmp/docs.save && mkdir /tmp/docs.save
 find docs/ -name '*.tgz' -maxdepth 1 -exec mv {} /tmp/docs.save/ \;
 
-helm package ./humio-helm-charts/
+helm package .
 
 mv /tmp/docs.save/*.tgz ./ && rmdir /tmp/docs.save
 
